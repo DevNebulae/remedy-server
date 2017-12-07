@@ -1,0 +1,9 @@
+{
+  "name": "remedy-server",
+  "version": "1.0.0",
+  "description": "The server for the Remedy music application",
+  "main": "index.js",
+  "repository": "git@github.com:DevNebulae/remedy-server.git",
+  "author": "DevNebulae <gamerkeeperson+github@gmail.com>",
+  "license": "GPL v3.0"
+}
