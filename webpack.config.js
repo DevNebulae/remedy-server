@@ -30,14 +30,9 @@ module.exports = {
   plugins: [
     new CleanWebpackPlugin([dist]),
     new StartServerPlugin("server.js"),
-    new webpack.NamedModulesPlugin(),
     new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoEmitOnErrorsPlugin(),
-    new webpack.DefinePlugin({
-      "process.env": {
-        BUILD_TARGET: JSON.stringify("server")
-      }
-    })
+    new webpack.NamedModulesPlugin(),
+    new webpack.NoEmitOnErrorsPlugin()
   ],
   target: "node",
   watch: true
