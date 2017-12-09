@@ -1,15 +1,15 @@
 import {
   GraphQLList,
   GraphQLNonNull,
-  GraphQLObject,
+  GraphQLObjectType,
   GraphQLString
 } from "graphql"
 
-export const TrackType = new GraphQLObject({
-  name: "",
+const TrackType = new GraphQLObjectType({
+  name: "Track",
   fields: () => {
-    const { AlbumType } = require("./album")
-    const { ArtistType } = require("./artist")
+    const AlbumType = require("./album").default
+    const ArtistType = require("./artist").default
 
     return {
       albums: {
@@ -27,3 +27,5 @@ export const TrackType = new GraphQLObject({
     }
   }
 })
+
+export default TrackType
