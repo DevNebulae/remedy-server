@@ -1,6 +1,8 @@
+export const ALBUM_ARTIST_TABLE = "album_artist"
+
 export default (sequelize, DataTypes) => {
   const AlbumArtist = sequelize.define(
-    "album_artist",
+    ALBUM_ARTIST_TABLE,
     {
       id: {
         allowNull: false,

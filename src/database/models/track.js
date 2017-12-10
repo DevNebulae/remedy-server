@@ -1,6 +1,10 @@
+const foreignKeyName = "trackId"
+const foreignKeyField = "fk_track_id"
+export const TRACK_TABLE = "track"
+
 export default (sequelize, DataTypes) => {
   const Track = sequelize.define(
-    "track",
+    TRACK_TABLE,
     {
       id: {
         allowNull: false,
@@ -21,16 +25,16 @@ export default (sequelize, DataTypes) => {
     Track.belongsToMany(models.Album, {
       through: "album_track",
       foreignKey: {
-        name: "trackId",
-        field: "track_id"
+        name: foreignKeyName,
+        field: foreignKeyField
       }
     })
 
     Track.belongsToMany(models.Artist, {
       through: "artist_track",
       foreignKey: {
-        name: "trackId",
-        field: "track_id"
+        name: foreignKeyName,
+        field: foreignKeyField
       }
     })
   }

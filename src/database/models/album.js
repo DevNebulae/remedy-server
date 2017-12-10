@@ -1,6 +1,13 @@
+import { ALBUM_ARTIST_TABLE } from "./album-artist"
+import { ALBUM_TRACK_TABLE } from "./album-track"
+
+const foreignKeyName = "albumId"
+const foreignKeyField = "fk_album_id"
+export const ALBUM_TABLE = "album"
+
 export default (sequelize, DataTypes) => {
   const Album = sequelize.define(
-    "album",
+    ALBUM_TABLE,
     {
       id: {
         allowNull: false,
@@ -19,18 +26,18 @@ export default (sequelize, DataTypes) => {
 
   Album.associate = models => {
     Album.belongsToMany(models.Artist, {
-      through: "album_artist",
+      through: ALBUM_ARTIST_TABLE,
       foreignKey: {
-        name: "albumId",
-        field: "album_id"
+        name: foreignKeyName,
+        field: foreignKeyField
       }
     })
 
     Album.belongsToMany(models.Track, {
-      through: "album_track",
+      through: ALBUM_TRACK_TABLE,
       foreignKey: {
-        name: "albumId",
-        field: "album_id"
+        name: foreignKeyName,
+        field: foreignKeyField
       }
     })
   }
