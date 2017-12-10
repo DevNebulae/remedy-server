@@ -1,13 +1,13 @@
+import createSchema from "./graphql"
 import Koa from "koa"
 import KoaRouter from "koa-router"
 import koaBody from "koa-bodyparser"
-import schema from "./graphql"
 import { graphiqlKoa, graphqlKoa } from "graphql-server-koa"
 
 export default () => {
   const app = new Koa()
   const router = new KoaRouter()
-  const graphql = graphqlKoa({ schema })
+  const graphql = graphqlKoa({ schema: createSchema() })
 
   router.post("/graphql", koaBody(), graphql)
   router.get("/graphql", graphql)
