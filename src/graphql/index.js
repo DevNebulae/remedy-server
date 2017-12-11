@@ -1,21 +1,15 @@
 import { makeExecutableSchema } from "graphql-tools"
 import Schema from "./schema"
 import { AlbumType, ArtistType, TrackType } from "./types/entities"
-import { JUKEBOX_TYPE } from "./types/queries/"
 
 const createSchema = () =>
   makeExecutableSchema({
     typeDefs: [AlbumType, ArtistType, TrackType, Schema],
     resolvers: {
-      Query: {
-        jukebox: () => ({
-          JukeboxQuery: () => ({
-            greeting: (root, args, context) => {
-              console.log("JukeboxQuery")
-              return "Hello world!"
-            }
-          })
-        })
+      RemedyQuery: {
+        albums: (root, args, { models }) => models.Album.findAll(),
+        artists: (root, args, { models }) => models.Artist.findAll(),
+        tracks: (root, args, { models }) => models.Track.findAll()
       }
     }
   })
