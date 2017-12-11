@@ -1,3 +1,4 @@
+import "colors"
 import createSchema from "./graphql"
 import Koa from "koa"
 import KoaRouter from "koa-router"
@@ -16,11 +17,8 @@ export default async () => {
     schema: createSchema()
   }))
 
-  await sequelize.authenticate()
-  console.info("Database connection has been established!")
-
-  await sequelize.sync({ force: true })
-  console.info("Sequelize synced with database.")
+  await sequelize.sync()
+  console.info("Sequelize has been synced with database!".green)
 
   router.post("/graphql", koaBody(), graphql)
   router.get("/graphql", graphql)
