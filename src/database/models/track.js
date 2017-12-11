@@ -1,6 +1,10 @@
-const foreignKeyName = "trackId"
-const foreignKeyField = "fk_track_id"
+import { ALBUM_TRACK_TABLE } from "./album-track"
+import { ARTIST_TRACK_TABLE } from "./artist-track"
+import { generateForeignKeyField, generateForeignKeyName } from "../util"
+
 export const TRACK_TABLE = "track"
+const foreignKeyName = generateForeignKeyName(TRACK_TABLE)
+const foreignKeyField = generateForeignKeyField(TRACK_TABLE)
 
 export default (sequelize, DataTypes) => {
   const Track = sequelize.define(
@@ -23,7 +27,7 @@ export default (sequelize, DataTypes) => {
 
   Track.associate = models => {
     Track.belongsToMany(models.Album, {
-      through: "album_track",
+      through: ALBUM_TRACK_TABLE,
       foreignKey: {
         name: foreignKeyName,
         field: foreignKeyField
@@ -31,7 +35,7 @@ export default (sequelize, DataTypes) => {
     })
 
     Track.belongsToMany(models.Artist, {
-      through: "artist_track",
+      through: ARTIST_TRACK_TABLE,
       foreignKey: {
         name: foreignKeyName,
         field: foreignKeyField

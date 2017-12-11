@@ -1,9 +1,10 @@
 import { ALBUM_ARTIST_TABLE } from "./album-artist"
 import { ALBUM_TRACK_TABLE } from "./album-track"
+import { generateForeignKeyField, generateForeignKeyName } from "../util"
 
-const foreignKeyName = "albumId"
-const foreignKeyField = "fk_album_id"
 export const ALBUM_TABLE = "album"
+const foreignKeyName = generateForeignKeyName(ALBUM_TABLE)
+const foreignKeyField = generateForeignKeyField(ALBUM_TABLE)
 
 export default (sequelize, DataTypes) => {
   const Album = sequelize.define(
