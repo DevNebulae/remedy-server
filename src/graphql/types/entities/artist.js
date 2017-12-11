@@ -2,11 +2,10 @@ import AlbumType from "./album"
 import TrackType from "./track"
 import gql from "graphql-tag"
 
-export const ARTIST_TYPE = "Artist"
-
 const ArtistType = gql`
-  type ${ARTIST_TYPE} {
+  type Artist {
     albums: [Album!]
+    id: String
     name: String!
     tracks: [Track!]
   }

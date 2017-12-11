@@ -1,17 +1,5 @@
-import AlbumType, { ALBUM_TYPE } from "./album"
-import ArtistType, { ARTIST_TYPE } from "./artist"
-import TrackType, { TRACK_TYPE } from "./track"
+import AlbumType from "./album"
+import ArtistType from "./artist"
+import TrackType from "./track"
 
-export {
-  ALBUM_TYPE,
-  ARTIST_TYPE,
-  JUKEBOX_TYPE,
-  REMEDY_TYPE,
-  TRACK_TYPE,
-  AlbumType,
-  ArtistType,
-  SchemaType,
-  JukeboxQuery,
-  RemedyQuery,
-  TrackType
-}
+export { AlbumType, ArtistType, TrackType }
