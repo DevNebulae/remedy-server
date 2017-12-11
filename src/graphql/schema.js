@@ -1,10 +1,10 @@
 import gql from "graphql-tag"
-import { QUERY_TYPE, Query } from "./types/queries"
+import { RemedyQuery } from "./types/queries"
 
 const Schema = gql`
   schema {
-    query: ${QUERY_TYPE}
+    query: RemedyQuery
   }
 `
 
-export default () => [Query, Schema]
+export default () => [RemedyQuery, Schema]
