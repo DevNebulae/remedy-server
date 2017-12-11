@@ -14,4 +14,12 @@ const createModels = sequelize => ({
   Track: sequelize.import(TRACK_TABLE, Track)
 })
 
+export {
+  ALBUM_ARTIST_TABLE,
+  ALBUM_TRACK_TABLE,
+  ARTIST_TRACK_TABLE,
+  ALBUM_TABLE,
+  ARTIST_TABLE,
+  TRACK_TABLE
+}
 export default createModels

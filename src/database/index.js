@@ -11,12 +11,11 @@ const sequelize = new Sequelize("remedy", "remedy-music", "antidote", {
   operatorsAliases: Sequelize.Op
 })
 
-const models = createModels(sequelize)
+const linkModels = models =>
+  Object.keys(models).forEach(modelName => {
+    if ("associate" in models[modelName]) {
+      models[modelName].associate(models)
+    }
+  })
 
-Object.keys(models).forEach(modelName => {
-  if ("associate" in models[modelName]) {
-    models[modelName].associate(models)
-  }
-})
-
-export { Sequelize, models, sequelize }
+export { Sequelize, createModels, linkModels, sequelize }
