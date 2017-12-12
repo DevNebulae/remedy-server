@@ -1,7 +1,7 @@
 import "colors"
-import createSchema from "./graphql"
 import Koa from "koa"
 import KoaRouter from "koa-router"
+import createSchema from "./graphql"
 import koaBody from "koa-bodyparser"
 import { graphiqlKoa, graphqlKoa } from "graphql-server-koa"
 import { createModels, linkModels, sequelize } from "./database"
