@@ -1,39 +1,10 @@
-const CleanWebpackPlugin = require("clean-webpack-plugin")
-const StartServerPlugin = require("start-server-webpack-plugin")
-const nodeExternals = require("webpack-node-externals")
-const path = require("path")
-const webpack = require("webpack")
-
-const dist = path.resolve(process.cwd(), "dist/")
-const src = path.resolve(process.cwd(), "src/")
-
-module.exports = {
-  entry: ["webpack/hot/poll?1000", path.resolve(src, "index")],
-  externals: [
-    nodeExternals({
-      whitelist: ["webpack/hot/poll?1000"]
-    })
-  ],
-  module: {
-    rules: [
-      {
-        test: /\.js?$/,
-        use: "babel-loader",
-        exclude: /node_modules/
-      }
-    ]
-  },
-  output: {
-    path: dist,
-    filename: "server.js"
-  },
-  plugins: [
-    new CleanWebpackPlugin([dist]),
-    new StartServerPlugin("server.js"),
-    new webpack.HotModuleReplacementPlugin(),
-    new webpack.NamedModulesPlugin(),
-    new webpack.NoEmitOnErrorsPlugin()
-  ],
-  target: "node",
-  watch: true
+switch (process.env.NODE_ENV) {
+  case "dev":
+  case "development":
+    module.exports = require("./webpack/development")
+    break
+  case "prod":
+  case "production":
+    module.exports = require("./webpack/production")
+    break
 }
