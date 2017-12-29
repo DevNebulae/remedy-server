@@ -7,18 +7,32 @@
   "author": "DevNebulae <gamerkeeperson+github@gmail.com>",
   "license": "GPL-3.0",
   "scripts": {
-    "start": "webpack"
+    "build": "cross-env NODE_ENV=production webpack",
+    "start": "cross-env NODE_ENV=development webpack"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0-beta.34",
     "@babel/preset-env": "^7.0.0-beta.34",
     "babel-loader": "8.0.0-beta.0",
     "clean-webpack-plugin": "^0.1.17",
+    "cross-env": "^5.1.1",
+    "eslint": "^4.12.1",
     "start-server-webpack-plugin": "^2.2.0",
+    "uglifyjs-webpack-plugin": "^1.1.2",
     "webpack": "^3.10.0",
+    "webpack-merge": "^4.1.1",
     "webpack-node-externals": "^1.6.0"
   },
   "dependencies": {
-    "express": "^4.16.2"
+    "@koa/cors": "2",
+    "colors": "^1.1.2",
+    "graphql": "^0.11.7",
+    "graphql-server-koa": "^1.2.0",
+    "koa": "^2.4.1",
+    "koa-bodyparser": "^4.2.0",
+    "koa-router": "^7.3.0",
+    "pg": "^7.4.0",
+    "pg-hstore": "^2.3.2",
+    "sequelize": "^4.27.0"
   }
 }

@@ -469,3 +469,4 @@ __pycache__/
 # End of https://www.gitignore.io/api/osx,node,macos,linux,windows,sublimetext,visualstudio,visualstudiocode
 
 /dist
+/files
