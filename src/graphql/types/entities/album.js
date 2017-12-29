@@ -1,6 +1,7 @@
 import ArtistType from "./artist"
 import TrackType from "./track"
 import {
+  GraphQLID,
   GraphQLList,
   GraphQLNonNull,
   GraphQLObjectType,
@@ -25,7 +26,7 @@ const AlbumType = new GraphQLObjectType({
     },
     id: {
       description: "",
-      type: GraphQLString
+      type: GraphQLID
     },
     title: {
       description: "",
