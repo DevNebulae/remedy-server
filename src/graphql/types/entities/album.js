@@ -1,5 +1,5 @@
-import { ArtistType } from "./artist"
-import { TrackType } from "./track"
+import { ArtistField, ArtistType } from "./artist"
+import { TrackField, TrackType } from "./track"
 import {
   GraphQLID,
   GraphQLList,
@@ -12,8 +12,7 @@ export const AlbumType = new GraphQLObjectType({
   name: "Album",
   fields: () => ({
     artists: {
-      description: "",
-      type: new GraphQLList(new GraphQLNonNull(ArtistType)),
+      ...ArtistField,
       resolve: (parent, args, { models }) =>
         models.Artist.findAll({
           include: [
@@ -33,8 +32,7 @@ export const AlbumType = new GraphQLObjectType({
       type: new GraphQLNonNull(GraphQLString)
     },
     tracks: {
-      description: "",
-      type: new GraphQLList(new GraphQLNonNull(TrackType)),
+      ...TrackField,
       resolve: (parent, args, { models }) =>
         models.Track.findAll({
           include: [
@@ -47,3 +45,8 @@ export const AlbumType = new GraphQLObjectType({
     }
   })
 })
+
+export const AlbumField = {
+  description: "",
+  type: new GraphQLList(new GraphQLNonNull(AlbumType))
+}
