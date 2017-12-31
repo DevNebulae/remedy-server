@@ -1,5 +1,3 @@
-import AlbumType from "./album"
-import ArtistType from "./artist"
-import TrackType from "./track"
-
-export { AlbumType, ArtistType, TrackType }
+export * from "./album"
+export * from "./artist"
+export * from "./track"

@@ -1,5 +1,5 @@
-import AlbumType from "./album"
-import ArtistType from "./artist"
+import { AlbumType } from "./album"
+import { ArtistType } from "./artist"
 import {
   GraphQLID,
   GraphQLList,
@@ -8,7 +8,7 @@ import {
   GraphQLString
 } from "graphql"
 
-const TrackType = new GraphQLObjectType({
+export const TrackType = new GraphQLObjectType({
   name: "Track",
   fields: () => ({
     albums: {
@@ -47,5 +47,3 @@ const TrackType = new GraphQLObjectType({
     }
   })
 })
-
-export default TrackType
